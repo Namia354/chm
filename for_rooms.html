@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://localhost:9898/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+
+<script>
+    var socket = io.connect('http://localhost:9898');
+    socket.emit("game_find", "waiting_room");
+
+</script>
+</body>
+</html>

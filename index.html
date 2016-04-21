@@ -1,0 +1,218 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <!--<script src="node_modules/socket.io-client/socket.io.js"></script>-->
+    <script src="http://localhost:9898/socket.io/socket.io.js"></script>
+
+
+    <!-- Place favicon.ico in the root directory -->
+
+    <!--<link rel="stylesheet" href="css/normalize.css">-->
+
+    <style type="text/css">
+        #back_desc_div {
+            position: absolute; /* Абсолютное позиционирование */
+            left: 350px; /* Положение левого края */
+            top: 100px; /* Положение верхнего края */
+
+            /*width: 120px; !* Ширина слоя *!*/
+            /*background: #e0e0e0; !* Цвет фона *!*/
+            /*border: solid 1px #000; !* Параметры рамки *!*/
+        }
+
+        #main_desc_div {
+            position: absolute; /* Абсолютное позиционирование */
+            left: 365px; /* Положение левого края */
+            top: 113px; /* Положение верхнего края */
+
+            /*width: 120px; !* Ширина слоя *!*/
+            /*background: #e0e0e0; !* Цвет фона *!*/
+            /*border: solid 1px #000; !* Параметры рамки *!*/
+        }
+
+        #text_after_table {
+            position: absolute; /* Абсолютное позиционирование */
+            top: 100px; /* Положение верхнего края */
+            left: 20px;
+            width: 300px;
+            height:300px;
+            overflow: auto;
+
+            /*background: #e0e0e0; !* Цвет фона *!*/
+            /*border: solid 1px #000; !* Параметры рамки *!*/
+        }
+
+        #text_error {
+            position: absolute; /* Абсолютное позиционирование */
+            top: 430px; /* Положение верхнего края */
+            left: 20px;
+            width: 300px;
+            height:300px;
+            color: #ff0000;
+
+            /*background: #e0e0e0; !* Цвет фона *!*/
+            /*border: solid 1px #000; !* Параметры рамки *!*/
+        }
+
+        #text_sh_m_w {
+            position: absolute; /* Абсолютное позиционирование */
+            top: 50px; /* Положение верхнего края */
+            left: 380px;
+            color: #ff0000;
+
+            /*background: #e0e0e0; !* Цвет фона *!*/
+            /*border: solid 1px #000; !* Параметры рамки *!*/
+        }
+
+        #text_sh_m_b {
+            position: absolute; /* Абсолютное позиционирование */
+            top: 20px; /* Положение верхнего края */
+            left: 380px;
+            color: #ff0000;
+
+            /*background: #e0e0e0; !* Цвет фона *!*/
+            /*border: solid 1px #000; !* Параметры рамки *!*/
+        }
+
+
+        #wrap{
+            display: none;
+            opacity: 0.8;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            padding: 16px;
+            background-color: rgba(1, 1, 1, 0.725);
+            z-index: 100;
+            overflow: auto;
+        }
+
+        #window{
+            width: 40px;
+            height: 300px;
+            margin: 50px auto;
+            display: none;
+            background: #fff;
+            z-index: 200;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            padding: 16px;
+        }
+
+        #window_rooms{
+            width: 600px;
+            height: 600px;
+            margin: 50px auto;
+            display: block;
+            background: #fff;
+            z-index: 200;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            padding: 16px;
+        }
+        .close{
+            margin-left: 0px;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+
+<div onclick="show('none')" id="wrap"></div>
+
+<!-- Само окно-->
+<div id="window">
+
+    <!-- Картинка крестика-->
+    <img class="close" id="choose_tower" src="img/tower_white.png">
+    <img class="close" id="choose_elephant" src="img/elephant_white.png">
+    <img class="close" id="choose_quenn" src="img/quenn_white.png">
+    <img class="close" id="choose_horse" src="img/horse_white.png">
+
+
+
+
+
+</div>
+
+
+<div id="window_rooms">
+
+    <button height='100' width='20' id="button_room"> Поиск комнаты </button>
+    <button height='100' width='20' id="button_room_left"> Покинуть очередь </button>
+
+
+
+
+
+</div>
+
+
+
+<!-- Add your site or application content here -->
+<div id="text_sh_m_w"> </div>
+<div id="text_sh_m_b"> </div>
+<!--<p style="font-size: 2em; z-index: 0;  text-align: center">Шахматы, йохохо</p>-->
+<!--<img height=100 width=100 src="img/MAIN_desc.png"border=0>-->
+
+<div id="back_desc_div" >
+    <!--// style="z-index: 1; text-align: center"-->
+
+    <!--<MAP name="somemap">-->
+    <!--<AREA id="place1" shape="rect" coords="15, 7, 80, 196" href="" style="background: black">-->
+
+    <!--</MAP>-->
+</div>
+
+<div id="main_desc_div" >
+    <!--//align="center" style="z-index: 1"-->
+
+
+
+
+
+
+</div>
+
+
+
+<div id="text_after_table"> </div>
+<div id="text_error"> </div>
+
+<!--<script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js"></script>-->
+<script src="js/jquery-1.12.0.min.js"></script>
+<!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>-->
+
+<script src="js/main.js"></script>
+
+
+<script>
+   // var socket = io.connect('http://localhost:9898');
+
+
+</script>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+
+</body>
+</html>
